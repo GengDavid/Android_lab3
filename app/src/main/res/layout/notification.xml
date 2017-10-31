@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    >
+
+    <ImageView
+        android:id="@+id/noticeimage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="5dp"
+        android:src="@mipmap/arla"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/noticetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新商品热卖"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/noticetext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="345"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/noticetext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="567"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

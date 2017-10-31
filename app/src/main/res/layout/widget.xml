@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0000"
+    android:padding="10dp"
+    android:orientation="horizontal"
+    android:id="@+id/mwidget" >
+
+    <ImageView
+        android:id="@+id/appwidget_imag"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/shoplist"
+        android:background="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/appwidget_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:contentDescription="widget"
+        android:text="widget"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:textStyle="bold|italic" />
+</LinearLayout>

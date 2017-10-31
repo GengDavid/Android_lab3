@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Lab3</string>
+    <string-array name="names">
+        <item>Enchated Forest</item>
+        <item>Arla Milk</item>
+        <item>Devondale Milk</item>
+        <item>Kindle Oasis</item>
+        <item>waitrose 早餐麦片</item>
+        <item>Mcvitie\'s 饼干</item>
+        <item>Ferrero Rocher</item>
+        <item>Maltesers</item>
+        <item>Lindt</item>
+        <item>Borggreve</item>
+    </string-array>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+</resources>
