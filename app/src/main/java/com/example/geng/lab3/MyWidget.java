@@ -53,7 +53,7 @@ public class MyWidget extends AppWidgetProvider {
         Intent i=new Intent("CLICKWIDGET");
         pi=PendingIntent.getBroadcast(context,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //给RemoteView上的Button设置按钮事件
+
         updateViews.setOnClickPendingIntent(R.id.mwidget,pi);
         ComponentName componentName=new ComponentName(context,MyWidget.class);
         appWidgetManager.updateAppWidget(componentName,updateViews);
@@ -74,8 +74,10 @@ public class MyWidget extends AppWidgetProvider {
     public void onReceive(Context context,Intent intent)
     {
         super.onReceive(context,intent);
+        //根据接收到的不同的广播进行不同的响应
         if(intent.getAction().equals("CLICKWIDGET"))
         {
+            //第一次点击，随机推荐商品
             String[] names = context.getResources().getStringArray(R.array.names);
             Random random = new Random();
             int p = random.nextInt(infos.length);
@@ -86,16 +88,16 @@ public class MyWidget extends AppWidgetProvider {
             updateViews.setTextViewText(R.id.appwidget_text,names[p]+"仅售"+prices[p]+"!");
             updateViews.setImageViewResource(R.id.appwidget_imag, get_img(names[p]));
 
+            //跳转到详情页面intent
             Intent mIntent = new Intent(context, Detail.class);
             mIntent.putExtra("name",recommond_name);
             mIntent.putExtra("price",recommond_price);
             mIntent.putExtra("info",recommond_info);
-
             PendingIntent pi;
             pi = PendingIntent.getActivity(context, 0, mIntent,
                     PendingIntent.FLAG_CANCEL_CURRENT);
             updateViews.setOnClickPendingIntent(R.id.mwidget,pi);
-
+            //使用AppWidgetManager更新
             ComponentName componentName=new ComponentName(context,MyWidget.class);
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             appWidgetManager.updateAppWidget(componentName,updateViews);
@@ -110,11 +112,13 @@ public class MyWidget extends AppWidgetProvider {
             updateViews.setTextViewText(R.id.appwidget_text,recommond_name+"已添加到购物车");
             updateViews.setImageViewResource(R.id.appwidget_imag, get_img(recommond_name));
 
-            Intent mIntent = new Intent(context, Detail.class);
+            //跳转到购物车，也就是主界面，
+            //通过from来告诉主界面应该显示列表还是购物车
+            Intent mIntent = new Intent(context, MainActivity.class);
             mIntent.putExtra("name",recommond_name);
             mIntent.putExtra("price",recommond_price);
             mIntent.putExtra("info",recommond_info);
-
+            mIntent.putExtra("from","notification");
             PendingIntent pi;
             pi = PendingIntent.getActivity(context, 0, mIntent,
                     PendingIntent.FLAG_CANCEL_CURRENT);
